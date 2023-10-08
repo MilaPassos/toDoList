@@ -4,7 +4,9 @@ document.addEventListener("DOMContentLoaded", function () {
     var saveBut = document.querySelector("#save");
     var retrBut = document.querySelector("#retrieve");
     var textoLista = "";
-  
+    const regex = /[0-9]|[\W]/;
+
+
     document.querySelector("form").addEventListener("submit", function (event) {
 
         event.preventDefault();
@@ -16,16 +18,14 @@ document.addEventListener("DOMContentLoaded", function () {
             alert ("Item já existente!")
         }else{
             adicionarLista(itemAdc);
-            var texto = itemAdc;
-            textoLista += texto + "<br>"
+            // var texto = itemAdc;
+            // var indexTexto = listaComp.indexOf(itemAdc);
+            // textoLista += indexTexto + " - " + texto + "<br>"
+            atualizaDisplay();
+            attachEditBtns();
+            attachDelBtns();
         }
-
-        // for (i=0; i < listaComp.length; i++) {
-        // var texto = listaComp[i];
-        // textoLista += texto + "</br>";
-        // }
-
-        exibDiv.innerHTML = textoLista;
+        // exibDiv.innerHTML = textoLista;
       
         console.log(listaComp);
 
@@ -46,13 +46,15 @@ document.addEventListener("DOMContentLoaded", function () {
         }else{
             alert("Nada a recuperar.")
         }
+        
+        atualizaDisplay();
+        attachEditBtns();
+        attachDelBtns();
 
-        for (i=0; i < listaComp.length; i++) {
-        var texto = listaComp[i];
-        textoLista += texto + "</br>";
-        }
-
-        exibDiv.innerHTML = textoLista;
+        // listaComp.forEach(function (item, index) {
+        //     textoLista += `<span>${index} - ${item}</span><button class="edit-button">Editar</button><br>`;
+        // });
+        // exibDiv.innerHTML = textoLista;
     })
 
     var listaComp = []
@@ -60,4 +62,51 @@ document.addEventListener("DOMContentLoaded", function () {
     function adicionarLista (item){
     listaComp.push(item)
     }
+
+    function atualizaDisplay () {
+        textoLista = "";
+        listaComp.forEach(function (item, index) {
+            var indexAt = index + 1
+            textoLista += `<span>${indexAt} - ${item}  </span><button class="editBtn">Editar</button> <button class="delBtn">Excluir</button><br>`
+        })
+        exibDiv.innerHTML = textoLista;
+    }
+
+    function attachEditBtns () {
+        var editBtns = [];
+        editBtns = document.querySelectorAll(".editBtn");
+        editBtns.forEach(function (item, index){
+            item.addEventListener("click", function(){
+                var indexplus = index + 1
+                var editing = prompt("Editando o item número:" + indexplus);
+                if(editing.length>15 || regex.test(editing) === true || editing === null){
+                    alert("Entrada inválida");
+                }else{
+                    listaComp.splice(index, 1, editing);
+                    atualizaDisplay();
+                    attachEditBtns();
+                    attachDelBtns();
+                }
+            });
+
+                // if(editing !== null){
+
+        })
+    }
+
+    function attachDelBtns (){
+        var delBtns = [];
+        delBtns = document.querySelectorAll(".delBtn");
+        delBtns.forEach(function (item, index){
+            var indexplus = index + 1;
+            item.addEventListener("click", function(){
+                listaComp.splice(index, 1);
+                alert("Item número " + indexplus + "excluído");
+                atualizaDisplay();
+                attachEditBtns();
+                attachDelBtns();
+            })
+        })
+    }
+        
 })
