@@ -60,4 +60,54 @@ document.addEventListener("DOMContentLoaded", function () {
     function adicionarLista (item){
     listaComp.push(item)
     }
+<<<<<<< Updated upstream
+=======
+
+    function atualizaDisplay () {
+        textoLista = "";
+        listaComp.forEach(function (item, index) {
+            var indexAt = index + 1
+            textoLista += `<span>${indexAt} - ${item}  </span><button class="editBtn"><img id="editImg" src="../Images/editBtn.png"></button><button class="delBtn"><img id="delImg" src="../Images/delBtn.png"></button><br>`
+        })
+        exibDiv.innerHTML = textoLista;
+    }
+
+    function attachEditBtns () {
+        var editBtns = [];
+        editBtns = document.querySelectorAll(".editBtn");
+        editBtns.forEach(function (item, index){
+            item.addEventListener("click", function(){
+                var indexplus = index + 1
+                var editing = prompt("Editando o item número:" + indexplus);
+                if(editing.length>15 || regex.test(editing) === true || editing === null){
+                    alert("Entrada inválida");
+                }else{
+                    listaComp.splice(index, 1, editing);
+                    atualizaDisplay();
+                    attachEditBtns();
+                    attachDelBtns();
+                }
+            });
+
+                // if(editing !== null){
+
+        })
+    }
+
+    function attachDelBtns (){
+        var delBtns = [];
+        delBtns = document.querySelectorAll(".delBtn");
+        delBtns.forEach(function (item, index){
+            var indexplus = index + 1;
+            item.addEventListener("click", function(){
+                listaComp.splice(index, 1);
+                alert("Item número " + indexplus + " excluído");
+                atualizaDisplay();
+                attachEditBtns();
+                attachDelBtns();
+            })
+        })
+    }
+        
+>>>>>>> Stashed changes
 })
