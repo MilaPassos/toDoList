@@ -10,42 +10,38 @@ body{
     font-family:'Courier New', Courier, monospace;
     text-align: center;
 }
-section{
-}
-
 #listabg{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
-    background-position: center;
+    justify-content: center;
+    align-items: stretch;
+    row-gap: 15px;
     background-color: aliceblue;
     background-size: 40%;
     border-radius: 15%;
     position: relative;
+    margin: auto;
     width: 40%;
     min-height: 500px;
-    max-height: 1000px;
 }
 h3{
-    flex: 1 100%;
+    order: 1;
+    flex: 1;
+    align-self: flex-start;
     width: 100%;
+    flex-basis: 5%;
 }
 #exibLista{
-    flex: 2 100%;
-    width: 100%;
-    padding-left: 37%;
+    order: 2;
+    flex: 5;
+    padding-left: 27%;
     text-align: left;
 }
 #bottombts{
-    flex: 3 100%;
-    align-items: center;
+    order: 3;
+    flex: 1;
 }
-/* .save{
-    flex: 3;
-}
-.retrieve{
-    flex: 3;
-} */
 .editBtn{
     max-width: 32px;
     max-height: 32px;
