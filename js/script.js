@@ -4,7 +4,9 @@ document.addEventListener("DOMContentLoaded", function () {
     var saveBut = document.querySelector("#save");
     var retrBut = document.querySelector("#retrieve");
     var textoLista = "";
-  
+    const regex = /[0-9]|[\W]/;
+
+
     document.querySelector("form").addEventListener("submit", function (event) {
 
         event.preventDefault();
@@ -16,16 +18,14 @@ document.addEventListener("DOMContentLoaded", function () {
             alert ("Item já existente!")
         }else{
             adicionarLista(itemAdc);
-            var texto = itemAdc;
-            textoLista += texto + "<br>"
+            // var texto = itemAdc;
+            // var indexTexto = listaComp.indexOf(itemAdc);
+            // textoLista += indexTexto + " - " + texto + "<br>"
+            atualizaDisplay();
+            attachEditBtns();
+            attachDelBtns();
         }
-
-        // for (i=0; i < listaComp.length; i++) {
-        // var texto = listaComp[i];
-        // textoLista += texto + "</br>";
-        // }
-
-        exibDiv.innerHTML = textoLista;
+        // exibDiv.innerHTML = textoLista;
       
         console.log(listaComp);
 
@@ -46,13 +46,15 @@ document.addEventListener("DOMContentLoaded", function () {
         }else{
             alert("Nada a recuperar.")
         }
+        
+        atualizaDisplay();
+        attachEditBtns();
+        attachDelBtns();
 
-        for (i=0; i < listaComp.length; i++) {
-        var texto = listaComp[i];
-        textoLista += texto + "</br>";
-        }
-
-        exibDiv.innerHTML = textoLista;
+        // listaComp.forEach(function (item, index) {
+        //     textoLista += `<span>${index} - ${item}</span><button class="edit-button">Editar</button><br>`;
+        // });
+        // exibDiv.innerHTML = textoLista;
     })
 
     var listaComp = []
@@ -60,14 +62,21 @@ document.addEventListener("DOMContentLoaded", function () {
     function adicionarLista (item){
     listaComp.push(item)
     }
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
+=======
+>>>>>>> master
 
     function atualizaDisplay () {
         textoLista = "";
         listaComp.forEach(function (item, index) {
             var indexAt = index + 1
+<<<<<<< HEAD
             textoLista += `<span>${indexAt} - ${item}  </span><button class="editBtn"><img id="editImg" src="../Images/editBtn.png"></button><button class="delBtn"><img id="delImg" src="../Images/delBtn.png"></button><br>`
+=======
+            textoLista += `<span>${indexAt} - ${item}  </span><button class="editBtn">Editar</button> <button class="delBtn">Excluir</button><br>`
+>>>>>>> master
         })
         exibDiv.innerHTML = textoLista;
     }
@@ -101,7 +110,11 @@ document.addEventListener("DOMContentLoaded", function () {
             var indexplus = index + 1;
             item.addEventListener("click", function(){
                 listaComp.splice(index, 1);
+<<<<<<< HEAD
                 alert("Item número " + indexplus + " excluído");
+=======
+                alert("Item número " + indexplus + "excluído");
+>>>>>>> master
                 atualizaDisplay();
                 attachEditBtns();
                 attachDelBtns();
@@ -109,5 +122,8 @@ document.addEventListener("DOMContentLoaded", function () {
         })
     }
         
+<<<<<<< HEAD
 >>>>>>> Stashed changes
+=======
+>>>>>>> master
 })
