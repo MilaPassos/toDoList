@@ -1,0 +1,72 @@
+@font-face {
+    font-family: 'Chromatica';
+    src: url('../fonts/chromatica-regular.otf'), format('opentype');
+}
+body{
+    /* width: 100%;
+    height: 100%; */
+    background-size: cover;
+    background-image: url("../Images/Background.jpg");
+    font-family:'Courier New', Courier, monospace;
+    text-align: center;
+}
+#listabg{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    row-gap: 15px;
+    background-color: aliceblue;
+    background-size: 40%;
+    border-radius: 15%;
+    position: relative;
+    margin: auto;
+    width: 40%;
+    min-height: 500px;
+}
+h3{
+    order: 1;
+    flex: 1;
+    align-self: flex-start;
+    width: 100%;
+    flex-basis: 5%;
+    margin-top: -1em;
+}
+#exibLista{
+    order: 2;
+    flex: 5;
+    padding-left: 27%;
+    text-align: left;
+}
+#bottombts{
+    order: 3;
+    flex: 1;
+}
+.editBtn{
+    max-width: 32px;
+    max-height: 32px;
+    background: none;
+    border: none;
+}
+#editImg{
+    max-width: 15px;
+    max-height: 15px;
+}
+.delBtn{
+    max-width: 32px;
+    max-height: 32px;
+    background: none;
+    border: none;
+}
+#delImg{
+    max-width: 15px;
+    max-height: 15px;
+}
+.button{
+    font-family: 'Chromatica';
+    background-color: wheat;
+    border-radius: 30%;
+    max-height: 25px;
+    width: fit-content;
+}

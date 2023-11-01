@@ -62,12 +62,21 @@ document.addEventListener("DOMContentLoaded", function () {
     function adicionarLista (item){
     listaComp.push(item)
     }
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+=======
+=======
+>>>>>>> master
 
     function atualizaDisplay () {
         textoLista = "";
         listaComp.forEach(function (item, index) {
             var indexAt = index + 1
+<<<<<<< HEAD
+            textoLista += `<span>${indexAt} - ${item}  </span><button class="editBtn"><img id="editImg" src="../Images/editBtn.png"></button><button class="delBtn"><img id="delImg" src="../Images/delBtn.png"></button><br>`
+=======
             textoLista += `<span>${indexAt} - ${item}  </span><button class="editBtn">Editar</button> <button class="delBtn">Excluir</button><br>`
+>>>>>>> master
         })
         exibDiv.innerHTML = textoLista;
     }
@@ -101,7 +110,11 @@ document.addEventListener("DOMContentLoaded", function () {
             var indexplus = index + 1;
             item.addEventListener("click", function(){
                 listaComp.splice(index, 1);
+<<<<<<< HEAD
+                alert("Item número " + indexplus + " excluído");
+=======
                 alert("Item número " + indexplus + "excluído");
+>>>>>>> master
                 atualizaDisplay();
                 attachEditBtns();
                 attachDelBtns();
@@ -109,4 +122,8 @@ document.addEventListener("DOMContentLoaded", function () {
         })
     }
         
+<<<<<<< HEAD
+>>>>>>> Stashed changes
+=======
+>>>>>>> master
 })
