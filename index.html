@@ -18,11 +18,9 @@
     <div class="row">
             
         <div class="col-md-2" id="listabg_">
-            <form class="listas_">
                 <br>
                 <input id="inputList_" type="text" name="Nome da Lista" maxlength="15" pattern="^[a-zA-Z ]+" placeholder="Nome da lista" required>
-                <button type="submit" class="button" id="send_">Enviar</button>
-            </form>
+                <button type="button" class="button" id="send_">Enviar</button>
 
             <br>
 
@@ -30,10 +28,6 @@
             <form id="listForm" name="listForm">
                 <div id="showList_"></div>
             </form>
-
-            <br><br>
-            <button class="button" id="save"><img id="saveImg" src="Images/Save.png"></button> 
-            <button class="button" id="retrieve"><img id="retrImg" src="Images/Export.png"></button>
             <br><br>
 
         </div>
@@ -46,14 +40,12 @@
         <br>
         <section>
             <div id="listabg">
-                <h3>Itens da lista:</h3>
+                <h3 id="itensTitle"></h3>
                 <div id="showItens"></div>
 
                 <br><br>
             
                 <div id="bottombts">
-                    <button class="button" id="save">Salvar</button> 
-                    <button class="button" id="retrieve">Recuperar</button>
                     <button class="button" id="clear">Limpar</button>
                     <br><br>
                 </div>
