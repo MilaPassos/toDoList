@@ -5,29 +5,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Afazeres</title>
-    <script src="js/script.js" defer></script>
+    <script type="module" src="js/script.js" defer></script>
     <link rel="stylesheet" href="css/style.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <form>
-    <input id="itemList" type="text" name="Item da lista" maxlength="15" pattern="^[a-zA-Z ]+" required>
-    <button type="submit" class="button" id="send">Enviar</button>
-    </form>
-    <br>
-    <section><br>
-        <div id="listabg">
-            <h3>Itens da lista:</h3>
-            <div id="exibLista"></div>
+    <!-- <div class="row">
+            
+        <div class="col-md-2" id="listabg_">
+                <br>
+                <input id="inputList_" type="text" name="Nome da Lista" maxlength="15" pattern="^[a-zA-Z ]+" placeholder="Nome da lista" required>
+                <button type="button" class="button" id="send_">Enviar</button>
 
+            <br>
+
+            <h3>Listas</h3>
+            <form id="listForm" name="listForm">
+                <div id="showList_"></div>
+            </form>
             <br><br>
-        
-            <div id="bottombts">
-                <button class="button" id="save">Salvar</button> 
-                <button class="button" id="retrieve">Recuperar</button>
-                <br><br>
-            </div>
+
         </div>
 
-    </section>
+        <div class="col-md-1"></div> -->
 
+        <div> <!-- class="col-md-4" -->
+        <input id="itemList" type="text" name="Item da lista" maxlength="15" pattern="^[a-zA-Z ]+" required placeholder="Item da lista">
+        <button type="button" class="button" id="send">Enviar</button>
+        <br>
+        <section>
+            <div id="listabg">
+                <h3 id="itensTitle"></h3>
+                <div id="showItens"></div>
+
+                <br><br>
+            
+                <div id="bottombts">
+                    <button class="button" id="clear">Limpar</button>
+                    <a href="listsMenu.html">
+                        <button type="button" class="button">Back</button>
+                    </a>
+                    <br><br>
+                </div>
+            </div>
+
+        </section>
+        </div>
 </body>

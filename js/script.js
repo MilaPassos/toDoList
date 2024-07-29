@@ -1,129 +1,129 @@
+var textList = "";
+var arrayListas_ = document.querySelector("#showList_");
+var actualList = "";
+var itemTocheck = "";
+var itensTitle = document.querySelector("#itensTitle");
+var completeItensList = [];
+var arrayItens = document.querySelector("#showItens");
+
+import { addToList } from "./utils.js";
+
+//Geral
+const regex = /[0-9]|[\W]/;
+
+function saveItens (){
+    localStorage.setItem (`${actualList}`, completeItensList);
+}
+
+function retrieveStorageListNameData() {
+    actualList = localStorage.getItem("listNameData");
+}
+
+function retrieveItens () {
+    var storageToArray = localStorage.getItem(`${actualList}`);
+    if (storageToArray !== null) {
+        completeItensList = storageToArray.split(",");
+    } else {
+        completeItensList = [];
+    }
+    console.log (completeItensList)
+
+    if(completeItensList !== null) {
+        console.log("Lista recuperada");
+    }else{
+        console.log("Nada a recuperar.");
+        completeItensList = [];
+    }
+}
+
+function attachEditItensButtons () {
+    var editItensButtons = [];
+    editItensButtons = document.querySelectorAll(".editItenBtn");
+    editItensButtons.forEach(function (item, index){
+        item.addEventListener("click", function(){
+            var shownIndex = index + 1
+            var editing = prompt("Editando o item número:" + shownIndex);
+            if(editing.length>15 || regex.test(editing) === true || editing === null){
+                alert("Entrada inválida");
+            }else{
+                completeItensList.splice(index, 1, editing);
+                saveItens();
+                refreshItensDisplay();
+            }
+        });
+    })
+}
+function attachDelItensButtons (){
+    var delItensButton = [];
+    delItensButton = document.querySelectorAll(".delItenBtn");
+    delItensButton.forEach(function (item, index){
+        var shownIndex = index + 1;
+        item.addEventListener("click", function(){
+            completeItensList.splice(index, 1);
+            alert("Item número " + shownIndex + " excluído");
+            refreshItensDisplay();
+            saveItens();
+        })
+    })
+}
+
+function refreshItensDisplay () {
+    textList = "";
+    completeItensList.forEach(function (item, index) {
+        if (item != ""){
+            var shownIndex = index + 1
+            textList += `<span>${shownIndex} - ${item}  </span><button class="editItenBtn"><img id="editImg" src="../Images/editBtn.png"></button><button class="delItenBtn"><img id="delImg" src="../Images/delBtn.png"></button><br>`
+        }else{
+            completeItensList.splice(index,1);
+        }
+    })
+    arrayItens.innerHTML = textList;
+    attachEditItensButtons();
+    attachDelItensButtons();
+}
+
+
+retrieveStorageListNameData();
+retrieveItens();
+itensTitle.innerHTML = `Itens da lista ${actualList}:`;
+refreshItensDisplay();
+
 document.addEventListener("DOMContentLoaded", function () {
-    var itemLista = document.querySelector("#itemList");
-    var exibDiv = document.querySelector("#exibLista");
-    var saveBut = document.querySelector("#save");
-    var retrBut = document.querySelector("#retrieve");
-    var textoLista = "";
-    const regex = /[0-9]|[\W]/;
+    
+    // Variáveis da lista de itens
+    var inputItem = document.querySelector("#itemList");
+    var clearButton = document.querySelector("#clear");
 
+    document.querySelector("#send").addEventListener("click", function () {
 
-    document.querySelector("form").addEventListener("submit", function (event) {
+        var actualItem = inputItem.value;
+        console.log(actualItem);
 
-        event.preventDefault();
-
-        var itemAdc = itemLista.value;
-        console.log(itemAdc);
-
-        if(listaComp.includes(itemAdc)){
+        if(completeItensList.includes(actualItem)){
             alert ("Item já existente!")
         }else{
-            adicionarLista(itemAdc);
-            // var texto = itemAdc;
-            // var indexTexto = listaComp.indexOf(itemAdc);
-            // textoLista += indexTexto + " - " + texto + "<br>"
-            atualizaDisplay();
-            attachEditBtns();
-            attachDelBtns();
+            if(actualList !== ""){
+                addToList(actualItem, completeItensList);
+                refreshItensDisplay();
+                saveItens();
+            }else{
+                alert ("Crie uma lista primeiro!");
+            }
         }
-        // exibDiv.innerHTML = textoLista;
       
-        console.log(listaComp);
+        console.log(completeItensList);
 
-        console.log(textoLista);
+        console.log(textList);
     });
+    
+    retrieveItens();
 
-    saveBut.addEventListener("click", function(){
-        localStorage.setItem ("arraySalvo", listaComp);
+    // Itens data management
+
+
+    clearButton.addEventListener("click", function(){
+        completeItensList = [];
+        saveItens();
+        refreshItensDisplay();
     });
-
-    retrBut.addEventListener("click", function (){
-        strgToArray = localStorage.getItem("arraySalvo");
-        listaComp = strgToArray.split(",")
-        console.log (listaComp)
-
-        if(listaComp !== null) {
-            alert("Lista recuperada");
-        }else{
-            alert("Nada a recuperar.")
-        }
-        
-        atualizaDisplay();
-        attachEditBtns();
-        attachDelBtns();
-
-        // listaComp.forEach(function (item, index) {
-        //     textoLista += `<span>${index} - ${item}</span><button class="edit-button">Editar</button><br>`;
-        // });
-        // exibDiv.innerHTML = textoLista;
-    })
-
-    var listaComp = []
-
-    function adicionarLista (item){
-    listaComp.push(item)
-    }
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> master
-
-    function atualizaDisplay () {
-        textoLista = "";
-        listaComp.forEach(function (item, index) {
-            var indexAt = index + 1
-<<<<<<< HEAD
-            textoLista += `<span>${indexAt} - ${item}  </span><button class="editBtn"><img id="editImg" src="../Images/editBtn.png"></button><button class="delBtn"><img id="delImg" src="../Images/delBtn.png"></button><br>`
-=======
-            textoLista += `<span>${indexAt} - ${item}  </span><button class="editBtn">Editar</button> <button class="delBtn">Excluir</button><br>`
->>>>>>> master
-        })
-        exibDiv.innerHTML = textoLista;
-    }
-
-    function attachEditBtns () {
-        var editBtns = [];
-        editBtns = document.querySelectorAll(".editBtn");
-        editBtns.forEach(function (item, index){
-            item.addEventListener("click", function(){
-                var indexplus = index + 1
-                var editing = prompt("Editando o item número:" + indexplus);
-                if(editing.length>15 || regex.test(editing) === true || editing === null){
-                    alert("Entrada inválida");
-                }else{
-                    listaComp.splice(index, 1, editing);
-                    atualizaDisplay();
-                    attachEditBtns();
-                    attachDelBtns();
-                }
-            });
-
-                // if(editing !== null){
-
-        })
-    }
-
-    function attachDelBtns (){
-        var delBtns = [];
-        delBtns = document.querySelectorAll(".delBtn");
-        delBtns.forEach(function (item, index){
-            var indexplus = index + 1;
-            item.addEventListener("click", function(){
-                listaComp.splice(index, 1);
-<<<<<<< HEAD
-                alert("Item número " + indexplus + " excluído");
-=======
-                alert("Item número " + indexplus + "excluído");
->>>>>>> master
-                atualizaDisplay();
-                attachEditBtns();
-                attachDelBtns();
-            })
-        })
-    }
-        
-<<<<<<< HEAD
->>>>>>> Stashed changes
-=======
->>>>>>> master
-})
+});
