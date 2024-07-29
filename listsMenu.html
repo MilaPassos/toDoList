@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afazeres</title>
+    <script type="module" src="js/listManagement.js" defer></script>
+    <script type="module" src="js/utils.js" defer></script>
+    <link rel="stylesheet" href="css/listsStyle.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <input id="itemList" type="text" name="Nome da lista" maxlength="15" pattern="^[a-zA-Z ]+" required placeholder="Item da lista">
+    <button type="button" class="button" id="send_">Enviar</button>
+    <br><br>
+    <section>
+        <div id="listabg">
+            <h3>Suas listas:</h3>
+            <div id="shownLists"></div>
+
+            <br><br>
+        
+            <div id="bottombts">
+                <button class="button" id="clear">Limpar</button>
+                <br><br>
+            </div>
+        </div>
+
+    </section>
+</body>

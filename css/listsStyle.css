@@ -1,0 +1,89 @@
+@font-face {
+    font-family: 'Chromatica';
+    src: url('../fonts/chromatica-regular.otf'), format('opentype');
+}
+body{
+    background-attachment: fixed;
+    background-size: cover;
+    background-image: url("../Images/Background.jpg");
+    font-family:'Courier New', Courier, monospace;
+    text-align: center;
+    margin: 1em !important;
+}
+
+/* Lista dos itens */
+#listabg{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    align-content: flex-start;
+    row-gap: 15px;
+    background-color: aliceblue;
+    background-size: 40%;
+    border-radius: 15%;
+    font-family:'Courier New', Courier, monospace;
+    position: relative;
+    margin-left: 30%;
+    margin-right: 30%;
+    max-width: 40%;
+    min-height: 500px;
+}
+h3{
+    order: 1;
+    flex: 1;
+    flex-basis: 5%;
+    align-self: flex-start;
+    width: 100%;
+    margin-top: -1em;
+    font-family:'Courier New', Courier, monospace;
+}
+#shownLists{
+    order: 2;
+    flex: 5;
+    padding-left: 27%;
+    text-align: start;
+    font-family:'Courier New', Courier, monospace;
+    font-size: larger;
+    align-self: flex-start;
+}
+
+.button{
+    font-family: 'Chromatica';
+    background-color: wheat;
+    border-radius: 30%;
+    max-height: 25px;
+    width: fit-content;
+}
+#bottombts{
+    order: 3;
+    flex: 1;
+}
+
+/* Botões da lista \/ */
+.editListBtn, .delListBtn, .goToItensButton{
+    max-width: 32px;
+    max-height: 32px;
+    background: none;
+    border: none;
+}
+.goToItensButton{
+    vertical-align: bottom;
+}
+#editImg, #delImg {
+    max-width: 18px;
+    max-height: 18px;
+    vertical-align: bottom;
+}
+#listImg{
+    max-width: 19px;
+    max-height: 19px;
+}
+
+
+a {
+    text-decoration: none;
+    color: black;
+    font-size: larger;
+}

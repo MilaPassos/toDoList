@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Afazeres</title>
-    <script src="js/script.js" defer></script>
+    <script type="module" src="js/script.js" defer></script>
     <link rel="stylesheet" href="css/style.css">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -15,7 +15,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div class="row">
+    <!-- <div class="row">
             
         <div class="col-md-2" id="listabg_">
                 <br>
@@ -32,9 +32,9 @@
 
         </div>
 
-        <div class="col-md-1"></div>
+        <div class="col-md-1"></div> -->
 
-        <div class="col-md-4">
+        <div> <!-- class="col-md-4" -->
         <input id="itemList" type="text" name="Item da lista" maxlength="15" pattern="^[a-zA-Z ]+" required placeholder="Item da lista">
         <button type="button" class="button" id="send">Enviar</button>
         <br>
@@ -47,14 +47,13 @@
             
                 <div id="bottombts">
                     <button class="button" id="clear">Limpar</button>
+                    <a href="listsMenu.html">
+                        <button type="button" class="button">Back</button>
+                    </a>
                     <br><br>
                 </div>
             </div>
 
         </section>
         </div>
-
-        <div class="col-md-3"></div>
-
-    </div>
 </body>
